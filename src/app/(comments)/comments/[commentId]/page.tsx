@@ -5,16 +5,16 @@ import Link from 'next/link';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { Metadata } from 'next';
 
-export const generateMetadata = async ({params: {id}}: Params): Promise<Metadata> => {
-    const comment = await commentService.getById(id)
+export const generateMetadata = async ({params: {commentId}}: Params): Promise<Metadata> => {
+    const comment = await commentService.getById(commentId)
     return {
         title: `Comment - ${comment.name}`,
         description: `Info about comment ${comment.id}. ${comment.name}`,
     };
 };
 
-const CommentsInfoPage: FC<Params> = async ({params: {id}}) => {
-    const comment = await commentService.getById(id)
+const CommentsInfoPage: FC<Params> = async ({params: {commentId}}) => {
+    const comment = await commentService.getById(commentId)
     return (
         <div className={css.Container}>
             <h3>{comment.id}. {comment.name}</h3>

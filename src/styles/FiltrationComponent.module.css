@@ -1,6 +1,5 @@
 .Container {
-    display: grid;
-    grid-template-columns: repeat(4, 60px);
+    display: flex;
     justify-content: center;
     padding: 20px;
     gap: 10px;
@@ -15,22 +14,6 @@
     font-weight: bold;
     font-size: 17px;
     cursor: pointer;
-}
-
-.Item1 {
-    grid-column: 1;
-}
-
-.Item2 {
-    grid-column: 2;
-}
-
-.Item3 {
-    grid-column: 3;
-}
-
-.Item4 {
-    grid-column: 4;
 }
 
 .Active {

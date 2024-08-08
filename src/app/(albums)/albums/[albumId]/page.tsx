@@ -5,23 +5,23 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 
-export const generateMetadata = async ({params: {id}}: Params): Promise<Metadata> => {
-    const album = await albumService.getById(id);
+export const generateMetadata = async ({params: {albumId}}: Params): Promise<Metadata> => {
+    const album = await albumService.getById(albumId);
     return {
         title: `Album - ${album.title}`,
         description: `Info about album ${album.id}. ${album.title}`,
     };
 };
 
-const AlbumsInfoPage: FC<Params> = async ({params: {id}}) => {
-    const album = await albumService.getById(id);
+const AlbumsInfoPage: FC<Params> = async ({params: {albumId}}) => {
+    const album = await albumService.getById(albumId);
     return (
         <div className={css.Container}>
             <h3>{album.id}. {album.title}</h3>
             <Link href={`/users/${album.userId}`}>
                 <button>USER</button>
             </Link>
-            <Link href={`/photos`}>
+            <Link href={`${albumId}/photos`}>
                 <button>PHOTOS</button>
             </Link>
         </div>

@@ -5,16 +5,16 @@ import Link from 'next/link';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { Metadata } from 'next';
 
-export const generateMetadata = async ({params: {id}}: Params): Promise<Metadata> => {
-    const photo = await photoService.getById(id);
+export const generateMetadata = async ({params: {photoId}}: Params): Promise<Metadata> => {
+    const photo = await photoService.getById(photoId);
     return {
         title: `Photo - ${photo.title}`,
         description: `Info about photo ${photo.id}. ${photo.title}`,
     };
 };
 
-const PhotosInfoPage: FC<Params> = async ({params: {id}}) => {
-    const photo = await photoService.getById(id);
+const PhotosInfoPage: FC<Params> = async ({params: {photoId}}) => {
+    const photo = await photoService.getById(photoId);
     return (
         <div className={css.Container}>
             <h3>{photo.id}. {photo.title}</h3>

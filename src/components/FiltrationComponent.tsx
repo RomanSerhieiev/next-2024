@@ -17,10 +17,10 @@ const FiltrationComponent: FC<IProps> = ({items, skip, setSkip, setPage}) => {
     };
     return (
         items >= 25 && <div className={css.Container}>
-            <button className={`${skip === 25 ? css.Active : css.NotActive} ${css.Item1}`} onClick={() => skipHandler(25)}>25</button>
-            {items >= 50 && <button className={`${skip === 50 ? css.Active : css.NotActive} ${css.Item2}`} onClick={() => skipHandler(50)}>50</button>}
-            {items >= 75 && <button className={`${skip === 75 ? css.Active : css.NotActive} ${css.Item3}`} onClick={() => skipHandler(75)}>75</button>}
-            {items >= 100 && <button className={`${skip === 100 ? css.Active : css.NotActive} ${css.Item4}`} onClick={() => skipHandler(100)}>100</button>}
+            <button className={skip === 25 ? css.Active : css.NotActive} onClick={() => skipHandler(25)}>25</button>
+            {items >= 50 && <button className={skip === 50 ? css.Active : css.NotActive} onClick={() => skipHandler(50)}>50</button>}
+            {items >= 75 && <button className={skip === 75 ? css.Active : css.NotActive} onClick={() => skipHandler(75)}>75</button>}
+            {items >= 100 && <button className={skip === 100 ? css.Active : css.NotActive} onClick={() => skipHandler(100)}>100</button>}
         </div>
     );
 };

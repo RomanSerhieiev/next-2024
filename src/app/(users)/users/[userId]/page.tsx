@@ -5,16 +5,16 @@ import Link from 'next/link';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { Metadata } from 'next';
 
-export const generateMetadata = async ({params: {id}}: Params): Promise<Metadata> => {
-    const user = await userService.getById(id);
+export const generateMetadata = async ({params: {userId}}: Params): Promise<Metadata> => {
+    const user = await userService.getById(userId);
     return {
         title: `User - ${user.name}`,
         description: `Info about user ${user.id}. ${user.name}`,
     };
 };
 
-const UserInfoPage: FC<Params> = async ({params: {id}}) => {
-    const user = await userService.getById(id);
+const UserInfoPage: FC<Params> = async ({params: {userId}}) => {
+    const user = await userService.getById(userId);
     return (
         <div className={css.Container}>
             <h3>{user.id}. {user.name}</h3>
@@ -41,13 +41,13 @@ const UserInfoPage: FC<Params> = async ({params: {id}}) => {
                     <p>BS: {user.company.bs}</p>
                 </div>
             </div>
-            <Link href={`/albums`}>
+            <Link href={`${userId}/albums`}>
                 <button>ALBUMS</button>
             </Link>
-            <Link href={`/todos`}>
+            <Link href={`${userId}/todos`}>
                 <button>TODOS</button>
             </Link>
-            <Link href={`/posts`}>
+            <Link href={`${userId}/posts`}>
                 <button>POSTS</button>
             </Link>
         </div>
