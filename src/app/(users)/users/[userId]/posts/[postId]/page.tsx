@@ -17,7 +17,7 @@ const PostsInfoPage: FC<Params> = async ({params: {postId}}) => {
     const post = await postService.getById(postId);
     return (
         <div className={css.Container}>
-            <h3>{post.id}. {post.title}</h3>
+            <h2>{post.id}. {post.title}</h2>
             <p className={css.Body}>{post.body}</p>
             <Link href={`/users/${post.userId}`}>
                 <button>USER</button>

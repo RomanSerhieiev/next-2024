@@ -17,17 +17,17 @@ const UserInfoPage: FC<Params> = async ({params: {userId}}) => {
     const user = await userService.getById(userId);
     return (
         <div className={css.Container}>
-            <h3>{user.id}. {user.name}</h3>
+            <h2>{user.id}. {user.name}</h2>
             <div className={css.UserContainer}>
                 <div>
-                    <h4>CONTACTS:</h4>
+                    <h3>CONTACTS:</h3>
                     <p>EMAIL: <span className={css.Email}>{user.email}</span></p>
                     <p>PHONE: {user.phone}</p>
                     <p>USERNAME: {user.username}</p>
                     <p>WEBSITE: {user.website}</p>
                 </div>
                 <div>
-                    <h4>ADDRESS:</h4>
+                    <h3>ADDRESS:</h3>
                     <p>CITY: {user.address.city}</p>
                     <p>STREET: {user.address.street}</p>
                     <p>SUITE: {user.address.suite}</p>
@@ -35,21 +35,23 @@ const UserInfoPage: FC<Params> = async ({params: {userId}}) => {
                     <p>GEO: {user.address.geo.lat}, {user.address.geo.lng}</p>
                 </div>
                 <div>
-                    <h4>COMPANY:</h4>
+                    <h3>COMPANY:</h3>
                     <p>NAME: {user.company.name}</p>
                     <p>CATCH PHRASE: {user.company.catchPhrase}</p>
                     <p>BS: {user.company.bs}</p>
                 </div>
             </div>
-            <Link href={`${userId}/albums`}>
-                <button>ALBUMS</button>
-            </Link>
-            <Link href={`${userId}/todos`}>
-                <button>TODOS</button>
-            </Link>
-            <Link href={`${userId}/posts`}>
-                <button>POSTS</button>
-            </Link>
+            <div className={css.Buttons}>
+                <Link href={`${userId}/albums`}>
+                    <button>ALBUMS</button>
+                </Link>
+                <Link href={`${userId}/todos`}>
+                    <button>TODOS</button>
+                </Link>
+                <Link href={`${userId}/posts`}>
+                    <button>POSTS</button>
+                </Link>
+            </div>
         </div>
     );
 };

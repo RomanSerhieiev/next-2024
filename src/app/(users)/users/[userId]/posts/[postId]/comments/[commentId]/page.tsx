@@ -17,7 +17,7 @@ const CommentsInfoPage: FC<Params> = async ({params: {commentId}}) => {
     const comment = await commentService.getById(commentId)
     return (
         <div className={css.Container}>
-            <h3>{comment.id}. {comment.name}</h3>
+            <h2>{comment.id}. {comment.name}</h2>
             <p className={css.Body}>{comment.body}</p>
             <p>EMAIL: <span className={css.Email}>{comment.email}</span></p>
             <Link href={`/posts/${comment.postId}`}>

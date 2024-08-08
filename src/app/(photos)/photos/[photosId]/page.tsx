@@ -17,7 +17,7 @@ const PhotosInfoPage: FC<Params> = async ({params: {photosId}}) => {
     const photo = await photoService.getById(photosId);
     return (
         <div className={css.Container}>
-            <h3>{photo.id}. {photo.title}</h3>
+            <h2>{photo.id}. {photo.title}</h2>
             <img src={photo.url} alt={photo.title} />
             <Link href={`/albums/${photo.albumId}`}>
                 <button>ALBUM</button>

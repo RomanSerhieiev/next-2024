@@ -17,7 +17,7 @@ const AlbumsInfoPage: FC<Params> = async ({params: {albumId}}) => {
     const album = await albumService.getById(albumId);
     return (
         <div className={css.Container}>
-            <h3>{album.id}. {album.title}</h3>
+            <h2>{album.id}. {album.title}</h2>
             <Link href={`/users/${album.userId}`}>
                 <button>USER</button>
             </Link>

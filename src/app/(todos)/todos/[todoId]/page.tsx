@@ -17,7 +17,7 @@ const TodosInfoPage: FC<Params> = async ({params: {todoId}}) => {
     const todo = await todoService.getById(todoId);
     return (
         <div className={css.Container}>
-            <h3>{todo.id}. {todo.title}</h3>
+            <h2>{todo.id}. {todo.title}</h2>
             <p>COMPLETED: <span className={todo.completed ? css.True : css.False}>{`${todo.completed}`}</span></p>
             <Link href={`/users/${todo.userId}`}>
                 <button>USER</button>
