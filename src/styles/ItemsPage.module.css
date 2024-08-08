@@ -1,0 +1,11 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: calc(100vh - 80px);
+}
+
+.Container div h1 {
+    text-align: center;
+    padding: 20px;
+}

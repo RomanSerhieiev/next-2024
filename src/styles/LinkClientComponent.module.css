@@ -1,0 +1,20 @@
+.Container button {
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.Active {
+    padding: 7px 17px;
+    border: 3px solid #263e52;
+    background: white;
+    color: #263e52;
+}
+
+.NotActive {
+    border: none;
+    background: #263e52;
+    color: #fff;
+    padding: 10px 20px;
+}
